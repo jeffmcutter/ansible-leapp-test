@@ -1,0 +1,4 @@
+---
+collections:
+  - name: https://github.com/jeffmcutter/ansible-leapp
+    type: git
