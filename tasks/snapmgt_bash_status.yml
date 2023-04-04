@@ -1,0 +1,10 @@
+---
+- name: Get snapmgt.bash status
+  ansible.builtin.shell: snapmgt.bash status 2>&1
+  register: result
+  changed_when: false
+
+- name: Display snapmgt.bash status results
+  ansible.builtin.debug:
+    var: result.stdout
+...

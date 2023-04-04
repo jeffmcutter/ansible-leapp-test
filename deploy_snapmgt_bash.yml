@@ -1,0 +1,11 @@
+---
+- name: Deploy snapmgt.bash script
+  hosts: all
+  tasks:
+    - name: Script is deployed
+      copy:
+        src: files/snapmgt.bash
+        dest: /usr/local/sbin/snapmgt.bash
+        owner: root
+        group: root
+        mode: '0744'

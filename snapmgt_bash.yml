@@ -1,0 +1,23 @@
+---
+- name: Run snapmgt.bash
+  hosts: all
+  tasks:
+    - name: Assert snap_action extra_var valid
+      vars:
+        valid_snap_actions:
+          - createsnaps
+          - status
+          - deletesnaps
+          - revert
+      ansible.builtin.assert:
+        that:
+          - snap_action is defined
+          - snap_action in valid_snap_actions
+
+    - name: Get snapmgt.bash status
+      ansible.builtin.include_tasks: tasks/snapmgt_bash_status.yml
+
+    - name: Perform requested snap action
+      ansible.builtin.include_tasks: tasks/snapmgt_bash_helper.yml
+      when: snap_action != 'status'
+...

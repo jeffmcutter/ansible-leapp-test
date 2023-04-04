@@ -1,0 +1,12 @@
+---
+- name: Reboot for revert
+  ansible.builtin.reboot:
+    reboot_timeout: 7200
+
+- name: Wait for snaps to merge
+  ansible.builtin.pause:
+    seconds: 10
+
+- name: Get snapmgt.bash status
+  ansible.builtin.include_tasks: tasks/snapmgt_bash_status.yml
+...

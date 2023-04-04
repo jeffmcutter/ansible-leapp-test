@@ -1,0 +1,16 @@
+---
+- name: Run snapmgt.bash with requested snap_action
+  ansible.builtin.shell: snapmgt.bash {{ snap_action }} 2>&1
+  register: result
+
+- name: Display snapmgt.bash results
+  ansible.builtin.debug:
+    var: result.stdout
+
+- name: Get snapmgt.bash status
+  ansible.builtin.include_tasks: tasks/snapmgt_bash_status.yml
+
+- name: Reboot for revert
+  ansible.builtin.include_tasks: tasks/snapmgt_bash_reboot.yml
+  when: snap_action == 'revert'
+...
