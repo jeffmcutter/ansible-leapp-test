@@ -4,8 +4,12 @@
     reboot_timeout: 7200
 
 - name: Wait for snaps to merge
-  ansible.builtin.pause:
-    seconds: 120
+  ansible.builtin.shell: lvs | grep pre_upgrade_ | wc -l
+  register: snap_merge_status
+  until: snap_merge_status.stdout == '0'
+  changed_when: false
+  retries: 60
+  delay: 10
 
 - name: Gather updated facts
   ansible.builtin.setup:
