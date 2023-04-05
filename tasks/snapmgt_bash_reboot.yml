@@ -5,7 +5,10 @@
 
 - name: Wait for snaps to merge
   ansible.builtin.pause:
-    seconds: 60
+    seconds: 120
+
+- name: Gather updated facts
+  ansible.builtin.setup:
 
 - name: Get snapmgt.bash status
   ansible.builtin.include_tasks: tasks/snapmgt_bash_status.yml
