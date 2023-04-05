@@ -1,4 +1,9 @@
 ---
+- name: Rsync package is present to backup boot
+  ansible.builtin.package:
+    name: rsync
+    state: present
+
 - name: Run snapmgt.bash with requested snap_action
   ansible.builtin.shell: snapmgt.bash {{ snap_action }} 2>&1
   register: result
