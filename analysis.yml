@@ -8,11 +8,11 @@
   tasks:
     - name: Initialize lock and logging
       ansible.builtin.import_role:
-        name: infra.leapp.logging
+        name: jeffmcutter.leapp.logging
       vars:
         job_name: 'RIPU preupgrade analysis'
 
     - name: Generate preupgrade analysis report
       ansible.builtin.import_role:
-        name: infra.leapp.analysis
+        name: jeffmcutter.leapp.analysis
 ...
