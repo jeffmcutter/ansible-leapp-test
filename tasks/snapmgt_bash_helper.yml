@@ -10,7 +10,7 @@
 
 - name: Display snapmgt.bash results
   ansible.builtin.debug:
-    var: result.stdout
+    var: result.stdout_lines
 
 - name: Get snapmgt.bash status
   ansible.builtin.include_tasks: tasks/snapmgt_bash_status.yml

@@ -6,5 +6,5 @@
 
 - name: Display snapmgt.bash status results
   ansible.builtin.debug:
-    var: result.stdout
+    var: result.stdout_lines
 ...
