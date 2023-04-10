@@ -1,0 +1,6 @@
+---
+- name: test shell stdout limit
+  hosts: all
+  tasks:
+    - name: cat /var/log/ripu/ripu.log
+      shell: cat /var/log/ripu/ripu.log
