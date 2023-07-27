@@ -8,5 +8,5 @@
   tasks:
     - name: Generate preupgrade analysis report
       ansible.builtin.import_role:
-        name: jeffmcutter.leapp.analysis
+        name: infra.leapp.analysis
 ...
