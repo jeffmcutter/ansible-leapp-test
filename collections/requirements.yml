@@ -1,4 +1,3 @@
 ---
 collections:
-  - name: infra.leapp
-    src: https://github.com/redhat-cop/infra.leapp.git
+  - src: https://github.com/redhat-cop/infra.leapp.git
